@@ -32,3 +32,16 @@ class Task(db.Model):
         return "#{0} - Task: {1} | Urgent: {2}".format(
             self.id, self.task_name, self.is_urgent
         )
+    
+
+# To create database:
+# Terminal:
+# set_pg
+# psql
+# CREATE DATABASE MyDb;
+# \c MyDB;
+    
+# python3 
+# from taskmanager import app, db
+# with app.app_context():
+#     db.create_all()
