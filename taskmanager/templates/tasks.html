@@ -10,4 +10,27 @@
     </div>
 </div>
 
+<ul class="collapsible">
+    {% for task in tasks|sort(attribute="due_date") %}   <!--  https://jinja.palletsprojects.com/en/3.0.x/templates/#builtin-filters  -->
+    <li>
+        <div class="collapsible-header indigo darken-1 white-text">
+            <i class="fas fa-caret-down"></i>
+            <strong>{{ task.task_name }}</strong> : {{ task.due_date.strftime("%d %B, %Y") }}
+            {% if task.is_urgent %}
+            <i class="fas fa-exclamation-circle yellow-text darken-2 right"></i>
+            {% endif %}
+        </div>
+        <div class="collapsible-body indigo-text">
+            <strong>{{ task.category }}</strong>
+            <p>{{ task.task_description }}</p>
+            <div class="card-action center-align">
+                <a class="btn green accent-4" href="{{ url_for('edit_task', task_id=task.id) }}">Edit</a>
+                <a class="btn red accent-4" href="{{ url_for('delete_task', task_id=task.id) }}">Delete</a>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+
 {% endblock %}
