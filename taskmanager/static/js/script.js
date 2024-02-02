@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
       i18n: {done: "Select"}
     });
 
-    let dropdown = document.querySelectorAll('select');
-    M.FormSelect.init(dropdown);
+    let selects = document.querySelectorAll('select');
+    M.FormSelect.init(selects);
   });
 
        
