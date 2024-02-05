@@ -44,4 +44,4 @@ class Task(db.Model):
 # python3 
 # from taskmanager import app, db
 # with app.app_context():
-#    db.create_all()
+#   db.create_all()
